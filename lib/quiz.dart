@@ -35,6 +35,7 @@ class _QuizState extends State<Quiz> {
     if (activeScreen == 'results-screen') {
       return ResultsScreen(
         chosenAnswers: selectedAnswers,
+        restartQuiz: restartQuiz,
       );
     }
 
@@ -49,6 +50,13 @@ class _QuizState extends State<Quiz> {
         activeScreen = 'results-screen';
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = 'questions-screen';
+    });
   }
 
   @override
