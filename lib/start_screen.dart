@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(
@@ -14,13 +15,6 @@ class StartScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Opacity( // opacity needs performance
-          //   opacity: 0.6,
-          //   child: Image.asset(
-          //     'assets/images/quiz-logo.png',
-          //     width: 300,
-          //   ),
-          // ),
           Image.asset(
             'assets/images/quiz-logo.png',
             width: 300,
@@ -31,9 +25,10 @@ class StartScreen extends StatelessWidget {
           ),
           Text(
             'Learn Flutter the fun way!',
-            style: TextStyle(
-              color: Colors.grey.shade300,
+            style: GoogleFonts.lato(
+              color: Colors.yellow.shade50,
               fontSize: 24,
+              fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(

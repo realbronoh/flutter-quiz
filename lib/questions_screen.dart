@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz/answer_button.dart';
 import 'package:quiz/data/questions.dart';
 
@@ -32,7 +33,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             Text(
               currentQuestion.text,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white),
+              style: GoogleFonts.lato(
+                color: Colors.yellow.shade50,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 30),
             ...currentQuestion.getShuffeledAnswers().map(
