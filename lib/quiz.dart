@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/data/questions.dart';
 import 'package:quiz/questions_screen.dart';
+import 'package:quiz/results_screen.dart';
 import 'package:quiz/start_screen.dart';
 
 class Quiz extends StatefulWidget {
@@ -23,11 +24,21 @@ class _QuizState extends State<Quiz> {
   }
 
   Widget renderScreenWidget() {
-    return activeScreen == 'start-screen'
-        ? StartScreen(switchScreen)
-        : QuestionsScreen(
-            onSelectAnswer: chooseAnswer,
-          );
+    if (activeScreen == 'start-screen') {
+      return StartScreen(switchScreen);
+    }
+    if (activeScreen == 'questions-screen') {
+      return QuestionsScreen(
+        onSelectAnswer: chooseAnswer,
+      );
+    }
+    if (activeScreen == 'results-screen') {
+      return ResultsScreen(
+        chosenAnswers: selectedAnswers,
+      );
+    }
+
+    throw Exception('Invalid screen!');
   }
 
   void chooseAnswer(String answer) {
@@ -35,8 +46,7 @@ class _QuizState extends State<Quiz> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = 'start-screen';
-        selectedAnswers = [];
+        activeScreen = 'results-screen';
       });
     }
   }
